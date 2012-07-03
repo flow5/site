@@ -1,0 +1,62 @@
+root
+  welcome
+      flow5 is a showcase for mobile web technology and design
+      flow5 is built with the flow5 framework
+  home
+      nuts and bolts
+        side by side with other toolkits
+          buttons
+            f5
+              css
+              one image
+              three images
+              touch area
+          tabsets
+          pictures
+          slider switch
+          scrollers
+              vertical
+              horizontal
+              carousel
+          animations
+              sheet
+              flip
+              slide
+              opacity
+          forms
+          maps
+            streetview
+          analytics
+          xhr
+          facebook
+          packages
+            show schema interface
+      design gems
+      cool hacks
+      fun stuff
+      sites
+      contributos
+
+
+flip page to show metadata for package
+
+showcase package format
+
+android and ios native builds
+
+build/install instructions
+  
+comments  
+
+framework
+  move widgets into a package
+  
+hosting
+  cleanup flow5.com
+  c9 readonly?
+  host the dev server?
+  
+  
+  
+  
+  
