@@ -40,6 +40,8 @@ root
 
 flip page to show metadata for package
 
+move fb id to manifest meta
+
 showcase package format
 
 android and ios native builds

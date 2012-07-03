@@ -24,41 +24,8 @@
 	OTHER DEALINGS IN THE SOFTWARE.
 
 ***********************************************************************************************************************/
-{
-	"meta": {
-		"icon": "images/icon.png",
-		"splash": "images/splash.png",
-		"facebookAppId": "346166275405090"
-	},
-	"all": {
-		"packages": [
-			"f5",
-			"f5.defaultstyles",
-			"f5.iosstyles",
-			"f5.widgets"
-		],
-		"flows": [
-			"json/flow.json"
-		],
-		"elements": [
-			"html/templates.html",
-			"css/templates.css"
-		],
-		"scripts": [
-			"js/flowdelegates.js",		
-			"js/services.js",
-			"js/site.js"
-		],
-		"domscripts": [
-			"js/viewdelegates.js"
-		],
-		"resources": [
-			"json/resources.json"
-		],
-		"debug": {
-			"schemas": [
-				"json/schemas.json"			
-			]
-		}
-	}
-}
+/*global F5*/
+
+F5.registerModule(function (F5) {
+	
+});
