@@ -107,7 +107,7 @@ F5.registerModule(function (F5) {
 					}, that.node, pkg, function () {
 						console.log('imported');
 					});			
-			},this.node.data.url);			
+			},this.node.data.url, true); // load from cache if possible			
 		};
 	}		
 
