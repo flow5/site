@@ -31,14 +31,17 @@ F5.registerModule(function (F5) {
 	function Packages() {
 		this.refreshModel = function (errCb) {
 			var that = this;
-			F5.execService(this.node, 'flow5.packages', {}, function (packages, status) {
-				if (status === 200) {
-					that.node.data.packages = packages;
-					that.node.data.modelChanged();
-				} else {
-					errCb(status);
-				}
-			})
+			if (!that.node.data.packages) {
+				F5.execService(this.node, 'flow5.packages', {}, function (packages, status) {
+					if (status === 200) {
+						that.node.data.packages = packages;
+						that.node.data.modelChanged();
+					} else {
+						errCb(status);
+					}
+				});
+				return true;
+			}
 		};
 	}
 	

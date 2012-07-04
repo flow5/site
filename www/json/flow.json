@@ -40,9 +40,11 @@
 					"selection": "packages",
 					"children": {
 						"packages": {
-							"transitions": ["detail"]
+							"transitions": ["packageViewer"]
 						},
-						"detail": {}
+						"packageViewer": {
+							"children": []
+						}
 					}
 				},
 				"settings": {

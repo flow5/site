@@ -30,7 +30,7 @@
 	},
 	"all": {
 		"flows": [
-			"flow.json"
+			"json/flow.json"
 		],
 		"elements": [
 			"html/templates.html",

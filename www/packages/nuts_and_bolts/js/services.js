@@ -24,19 +24,8 @@
 	OTHER DEALINGS IN THE SOFTWARE.
 
 ***********************************************************************************************************************/
+/*global F5*/
 
-exports.handleRequest = function (req, res) {
-	var packages = [
-		{name: 'nuts and bolts', pkg: 'nuts_and_bolts'},
-		{name: 'external', pkg: 'scratch.nuts_and_bolts', url: 'http://localhost:8008/scratch/external.f5'},
-	    {name: 'design gems'},
-	    {name: 'cool hacks'},
-	    {name: 'fun stuff'},
-	    {name: 'sites'},
-	    {name: 'contributors'}
-	];
-
-    res.writeHead(200, {'Content-Type': 'application/json'});
-	res.write(JSON.stringify(packages));
-	res.end();			
-};
+F5.registerModule(function (F5) {
+	
+});
