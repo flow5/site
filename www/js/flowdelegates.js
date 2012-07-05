@@ -29,9 +29,13 @@
 F5.registerModule(function (F5) {
 
 	function Packages() {
+		this.initialize = function () {
+			this.firstTime = true;
+		};
+		
 		this.refreshModel = function (errCb) {
 			var that = this;
-			if (!that.node.data.packages) {
+			if (!that.node.data.packages || !that.node.data.packages.length) {
 				F5.execService(this.node, 'flow5.packages', {}, function (packages, status) {
 					if (status === 200) {
 						that.node.data.packages = packages;
@@ -41,6 +45,9 @@ F5.registerModule(function (F5) {
 					}
 				});
 				return true;
+			} else if (this.firstTime) {
+				this.node.data.modelChanged();
+				this.firstTime = false;
 			}
 		};
 	}

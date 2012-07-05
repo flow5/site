@@ -28,7 +28,7 @@
 exports.handleRequest = function (req, res) {
 	var packages = [
 		{name: 'nuts and bolts', pkg: 'nuts_and_bolts'},
-		{name: 'external', pkg: 'scratch.nuts_and_bolts', url: 'http://localhost:8008/scratch/external.f5'},
+		{name: 'external', pkg: 'scratch.nuts_and_bolts', url: 'http://flow5.local:8008/scratch/external.f5'},
 	    {name: 'design gems'},
 	    {name: 'cool hacks'},
 	    {name: 'fun stuff'},

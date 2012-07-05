@@ -28,13 +28,21 @@
 
 F5.registerModule(function (F5) {
 	
+	function Welcome() {
+		this.initialize = function () {
+			var that = this;
+			F5.addTapListener(this.el, function () {
+				F5.Global.flowController.doTransition(that.node, 'home');
+			});	
+		};				
+	}	
+	
 	function Home() {
 		this.getNavConfig = function () {
 			return {
 				left: null
 			};
-		};	
-		
+		};			
 	}
 	
 	function Packages() {
@@ -92,21 +100,27 @@ F5.registerModule(function (F5) {
 		};
 		
 		this.viewDidBecomeInactive = function () {
-			F5.Global.flowController.deleteNode(this.node.children[this.node.data.pkg]);
+			if (this.node.children[this.node.data.pkg]) {
+				F5.Global.flowController.deleteNode(this.node.children[this.node.data.pkg]);				
+			}
 		};	
 		
 		this.viewDidBecomeActive = function () {
 			var that = this;
 			var pkg = this.node.data.pkg;
-			F5.importPackage(pkg, function () {
-				F5.Global.flowController.importNode(pkg, {
-						active: true,
-						children:{
-							root: F5.valueFromId(F5.Flows, pkg)
-						}
-					}, that.node, pkg, function () {
-						console.log('imported');
-					});			
+			F5.importPackage(pkg, function (result) {
+				if (result) {
+					F5.Global.flowController.importNode(pkg, {
+							active: true,
+							children:{
+								root: F5.valueFromId(F5.Flows, pkg)
+							}
+						}, that.node, pkg, function () {
+							console.log('imported');
+						});								
+				} else {
+					F5.alert('Error', 'Could not import: ' + pkg);
+				}
 			},this.node.data.url, true); // load from cache if possible			
 		};
 	}		
@@ -114,8 +128,9 @@ F5.registerModule(function (F5) {
 	
 	function Settings() {
 		
-	}		
-
+	}				
+	
+	F5.Prototypes.ViewDelegates.welcome = new Welcome();	
 	F5.Prototypes.ViewDelegates.home = new Home();	
 	F5.Prototypes.ViewDelegates.packages = new Packages();	
 	F5.Prototypes.ViewDelegates.packageViewer = new PackageViewer();	

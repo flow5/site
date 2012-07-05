@@ -40,6 +40,12 @@
 					"selection": "packages",
 					"children": {
 						"packages": {
+							"schema": {
+								"packages": {
+									"persist": true,
+									"value": []
+								}										
+							},
 							"transitions": ["packageViewer"]
 						},
 						"packageViewer": {
