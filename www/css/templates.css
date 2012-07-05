@@ -74,6 +74,7 @@
 	-webkit-box-pack: center;
 	padding: 1em;
 	font-size: .12em;
+	-webkit-box-sizing: border-box;
 }
 
 .packages {
