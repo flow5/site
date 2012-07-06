@@ -55,19 +55,8 @@ F5.registerModule(function (F5) {
 			};
 		};	
 		
-		this.viewDidBecomeActive = function () {
-			var that = this;
-			if (this.node.flowDelegate.refreshModel(function errCb() {
-				F5.stopActivity(that.el);
-				F5.alert('Something went wrong', 'Please try again later.');
-			})) {
-				F5.startActivity(this.el);
-			}
-		};
-		
-		this.modelChanged = function () {
-			var that = this;
-			F5.stopActivity(this.el);
+		this.populateList = function () {
+			var that = this;			
 			F5.populateList(this.widgets.list, 'packageItem', this.node, this.node.data.packages, 
 				function (item, el, widgets) {
 					widgets.control.setAction(function () {												
@@ -84,7 +73,28 @@ F5.registerModule(function (F5) {
 						}
 					});
 				}
-			) ;			
+			);			
+		};
+		
+		this.viewWillBecomeActive = function () {
+			if (this.node.data.packages) {
+				this.populateList();
+			}
+		};
+		
+		this.viewDidBecomeActive = function () {
+			var that = this;
+			if (this.node.flowDelegate.refreshModel(function errCb() {
+				F5.stopActivity(that.el);
+				F5.alert('Something went wrong', 'Please try again later.');
+			})) {
+				F5.startActivity(this.el);
+			}
+		};
+		
+		this.modelChanged = function () {
+			F5.stopActivity(this.el);
+			this.populateList();					
 		};					
 	}
 

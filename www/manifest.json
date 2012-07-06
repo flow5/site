@@ -36,7 +36,8 @@
 			"f5",
 			"f5.defaultstyles",
 			"f5.iosstyles",
-			"f5.widgets"
+			"f5.widgets",
+			"f5.persistence"
 		],
 		"flows": [
 			"json/flow.json"
