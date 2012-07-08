@@ -52,7 +52,7 @@
 .root {
 	font-family: 'ocr';
 	font-size: 100px;
-	background-color: #1679ff;
+	background-color: black;
 }
 
 .f5navbar {
@@ -115,6 +115,10 @@
 	-webkit-box-sizing: border-box;
 }
 
+.welcome, .packages, .packageViewer {
+	background-color: #1679ff;	
+}
+
 .packageItem {
 	line-height: 1.8em;
 	font-size: .24em;
@@ -146,6 +150,7 @@
 
 .settings {
 	padding-top: .24em;
+	background-color: black;
 }
 
 .settings .f5form {
