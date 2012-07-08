@@ -31,10 +31,16 @@ F5.registerModule(function (F5) {
 	function Welcome() {
 		this.initialize = function () {
 			var that = this;
-			F5.addTapListener(this.el, function () {
+			this.widgets.continue.setAction(function () {
 				F5.Global.flowController.doTransition(that.node, 'home');
 			});	
-		};				
+		};	
+		
+		this.getNavConfig = function () {
+			return {
+				title: "Flow5"
+			};
+		};								
 	}	
 	
 	function Home() {
@@ -117,7 +123,7 @@ F5.registerModule(function (F5) {
 			};
 		};
 		
-		this.viewDidBecomeInactive = function () {
+		this.release = function () {
 			if (this.node.children[this.node.data.pkg]) {
 				F5.Global.flowController.deleteNode(this.node.children[this.node.data.pkg]);				
 			}
@@ -130,8 +136,8 @@ F5.registerModule(function (F5) {
 					children:{
 						root: F5.valueFromId(F5.Flows, pkg)
 					}
-				}, this.node, pkg, function () {
-					console.log('imported');
+				}, this.node, pkg, function (node) {
+					F5.Global.flowController.refresh();
 				});			
 		};
 		
@@ -147,7 +153,7 @@ F5.registerModule(function (F5) {
 				var pkg = this.node.data.pkg;
 				F5.importPackage(pkg, function (result) {
 					if (result) {
-						that.importNode(pkg);						
+						that.importNode(pkg);
 					} else {
 						F5.alert('Error', 'Could not import: ' + pkg);
 					}

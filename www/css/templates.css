@@ -44,7 +44,7 @@
 	z-index: 1;
 }
 
-.text1, .f5navbar .f5button-label {
+.text1, .f5button-label {
 	color: #0770DB;
 	text-shadow: 0px 0px 3px black;	
 }
@@ -70,13 +70,13 @@
 	-webkit-mask-position: center .03em;
 }
 
-.f5navbar .f5button {
+.f5button {
 	border-radius: 0px;	
     box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.85);	
 	background-color: #0b3c7e;	
 }
 
-.f5navbar .f5button.f5button-press {
+.f5button.f5button-press {
 	background-color: #0b2246;		
 }
 
@@ -85,7 +85,7 @@
 	font-size: .18em;
 }
 
-.f5navbar .f5button-label, .f5navbar .f5title {
+.f5button-label, .f5navbar .f5title {
 	padding-top: .25em;
 }
 
@@ -103,11 +103,27 @@
 
 .welcome {
 	display: -webkit-box;
+	-webkit-box-orient: vertical;
 	-webkit-box-align: center;
 	-webkit-box-pack: center;
-	padding: 1em;
-	font-size: .12em;
+	text-align: center;
+	padding: .28em;
 	-webkit-box-sizing: border-box;
+}
+
+.welcome .text1 {
+	font-size: .28em;
+	margin-bottom: 1em;	
+}
+
+.welcome .text1:first-child {
+	margin-top: .5em;		
+}
+
+.welcome .expand {
+	display: -webkit-box;
+	-webkit-box-align: center;
+	-webkit-box-flex: 1.0;
 }
 
 .packages {
@@ -116,7 +132,7 @@
 }
 
 .welcome, .packages, .packageViewer {
-	background-color: #1679ff;	
+	background-color: #555;	
 }
 
 .packageItem {
