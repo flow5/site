@@ -49,7 +49,12 @@
 							"transitions": ["packageViewer"]
 						},
 						"packageViewer": {
-							"children": []
+							"transitions": [{"to":"packageMeta", "animation": "flip"}],
+							"children": {
+							}
+						},
+						"packageMeta": {
+							
 						}
 					}
 				},

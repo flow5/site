@@ -27,13 +27,14 @@
 
 exports.handleRequest = function (req, res) {
 	var packages = [
-		{name: 'nuts and bolts', pkg: 'nuts_and_bolts'},
-		{name: 'external', pkg: 'scratch.nuts_and_bolts', url: 'http://flow5.local:8008/scratch/external.f5'},
-	    {name: 'design gems'},
-	    {name: 'cool hacks'},
-	    {name: 'fun stuff'},
-	    {name: 'sites'},
-	    {name: 'contributors'}
+		{name: 'Basics', pkg: 'nuts_and_bolts'},
+	    {name: 'Style'},
+	    {name: 'Motion'},
+	    {name: 'Cool'},
+	    {name: 'Fun'},
+	    {name: 'Sites'},
+	    {name: 'Contributors'},
+		{name: 'External', pkg: 'scratch.external', url: 'http://flow5.local:8008/scratch/external.f5'}
 	];
 
     res.writeHead(200, {'Content-Type': 'application/json'});

@@ -51,7 +51,7 @@ F5.registerModule(function (F5) {
 		// TODO: f5 block for the navconfig title
 		this.getNavConfig = function () {
 			return {
-				title: 'Showcase'
+				title: 'Flow5'
 			};
 		};	
 		
@@ -100,11 +100,19 @@ F5.registerModule(function (F5) {
 
 	function PackageViewer() {
 		this.getNavConfig = function () {
+			var that = this;
+			var meta = F5.valueFromId(F5.Meta, this.node.data.pkg);
 			return {
-				title: this.node.data.pkg,
+				title: meta ? meta.title : null,
 				left: {
 					label: 'Back',
 					transition: 'back'
+				},
+				right: {
+					label: 'Meta',
+					action: function () {
+						F5.Global.flowController.doTransition(that.node, 'packageMeta');
+					}
 				}
 			};
 		};
@@ -115,26 +123,50 @@ F5.registerModule(function (F5) {
 			}
 		};	
 		
-		this.viewDidBecomeActive = function () {
+		this.importNode = function (pkg) {
 			var that = this;
-			var pkg = this.node.data.pkg;
-			F5.importPackage(pkg, function (result) {
-				if (result) {
-					F5.Global.flowController.importNode(pkg, {
-							active: true,
-							children:{
-								root: F5.valueFromId(F5.Flows, pkg)
-							}
-						}, that.node, pkg, function () {
-							console.log('imported');
-						});								
-				} else {
-					F5.alert('Error', 'Could not import: ' + pkg);
-				}
-			},this.node.data.url, true); // load from cache if possible			
+			F5.Global.flowController.importNode(pkg, {
+					active: true,
+					children:{
+						root: F5.valueFromId(F5.Flows, pkg)
+					}
+				}, this.node, pkg, function () {
+					console.log('imported');
+				});			
 		};
-	}		
-
+		
+		this.initialize = function () {
+			if (F5.valueFromId(F5.Meta, this.node.data.pkg)) {
+				this.importNode(this.node.data.pkg);
+			}
+		};
+		
+		this.viewDidBecomeActive = function () {
+			if (!F5.valueFromId(F5.Meta, this.node.data.pkg)) {
+				var that = this;
+				var pkg = this.node.data.pkg;
+				F5.importPackage(pkg, function (result) {
+					if (result) {
+						that.importNode(pkg);						
+					} else {
+						F5.alert('Error', 'Could not import: ' + pkg);
+					}
+				},this.node.data.url, true); // load from cache if possible				
+			}		
+		};
+	}	
+	
+	function PackageMeta() {
+		this.getNavConfig = function () {
+			return {
+				title: 'Meta',
+				right: {
+					label: 'Pkg',
+					transition: 'back'
+				}
+			};
+		};
+	}
 	
 	function Settings() {
 		
@@ -144,5 +176,6 @@ F5.registerModule(function (F5) {
 	F5.Prototypes.ViewDelegates.home = new Home();	
 	F5.Prototypes.ViewDelegates.packages = new Packages();	
 	F5.Prototypes.ViewDelegates.packageViewer = new PackageViewer();	
+	F5.Prototypes.ViewDelegates.packageMeta = new PackageMeta();	
 	F5.Prototypes.ViewDelegates.settings = new Settings();	
 });

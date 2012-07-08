@@ -24,20 +24,45 @@
 	OTHER DEALINGS IN THE SOFTWARE.
 
 ***********************************************************************************************************************/
+
+@font-face {
+	font-family: 'ocr';	
+	src: url('../fonts/OCRAStd.otf') format('opentype');
+}
+
+/* TODO: should overrides be required here? */
+.f5navbar .f5title {
+	font-family: inherit;
+}
+.f5default.f5tabset .f5button-label, .f5button {
+	font-family: 'ocr';
+}
+
+/* TODO: should these be in default.css? */
+.f5navbar {
+	position: relative;
+	z-index: 1;
+}
+
+.text1, .f5navbar .f5button-label {
+	color: #0770DB;
+	text-shadow: 0px 0px 3px black;	
+}
+
 .root {
-	font-family: sans-serif;
+	font-family: 'ocr';
 	font-size: 100px;
-	background-color: lightgray;
+	background-color: #1679ff;
 }
 
 .f5navbar {
-	background-image: -webkit-gradient(linear, left top, left bottom,     
-							from(#000), to(#000), 
-							color-stop(0.02, #545454), 
-							color-stop(0.04, #3b3b3b), 
-							color-stop(0.5, #1d1d1d), 
-							color-stop(0.51, #000));
-	color: white;	
+	background-image: -webkit-gradient(linear, 100% 0%, 100% 100%,
+					        from(#0b2246),
+					        color-stop(0.50, #0b3c7e),
+					        to(#0b2246));  
+	background-size: 100% .03em;
+	background-repeat: repeat-y;
+	box-shadow: 0px 1px 5px black;	
 }
 
 .f5default.f5tabset .f5button .f5mask, .f5default.f5tabset .f5button .f5mask-shadow {
@@ -46,22 +71,30 @@
 }
 
 .f5navbar .f5button {
-    background-image: -webkit-gradient(linear, left top, left bottom, 
-		from(rgb(138, 161, 191)), 
-		to(rgb(74, 108, 155) ), 
-		color-stop(0.5, rgb(88, 119, 162) ),
-        color-stop(0.5, rgb(71, 105, 153) ));
-    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25), inset 0px 1px 1px
-        rgba(0, 0, 0, 0.25);	
+	border-radius: 0px;	
+    box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.85);	
+	background-color: #0b3c7e;	
 }
 
 .f5navbar .f5button.f5button-press {
-    background-image: -webkit-gradient(linear, left top, left bottom, 
-		from(rgb(64, 80, 95)), 
-		to(rgb(37, 54, 76) ), 
-		color-stop(0.5, rgb(38, 60, 80) ),
-        color-stop(0.5, rgb(30, 53, 76) ));
+	background-color: #0b2246;		
 }
+
+
+.f5navbar .f5button-label {
+	font-size: .18em;
+}
+
+.f5navbar .f5button-label, .f5navbar .f5title {
+	padding-top: .25em;
+}
+
+.f5navbar .f5title {
+	color: black;
+	-webkit-text-stroke: .5px #0770DB;	
+	text-shadow: 0px -.5px .5px rgba(50, 50, 50, 1), 0px 0px 1px white;	
+}
+
 
 .root, .home {
 	display: -webkit-box;
@@ -78,12 +111,16 @@
 }
 
 .packages {
-	padding-left: .06em;	
-	padding-right: .06em;	
+	padding: .12em;	
+	-webkit-box-sizing: border-box;
 }
 
 .packageItem {
+	line-height: 1.8em;
 	font-size: .24em;
+}
+
+.packageItem .packageName {
 	text-transform: capitalize;
 }
 
@@ -92,7 +129,9 @@
 }
 
 
-
+.packageMeta {
+	background-color: #0d4795;
+}
 
 
 
