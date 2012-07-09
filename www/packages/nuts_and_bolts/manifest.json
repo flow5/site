@@ -41,7 +41,8 @@
 			"js/services.js"
 		],
 		"domscripts": [
-			"js/viewdelegates.js"
+			"js/viewdelegates.js",
+			"3p/iscroll.js"
 		],
 		"resources": [
 			"json/resources.json"

@@ -25,5 +25,32 @@
 
 ***********************************************************************************************************************/
 {
-	
+	"children": {
+		"buttons": {
+			"type": "tabset",
+			"selection": "flow5_buttons",			
+			"children": {
+				"flow5_buttons": {},
+				"dojo_buttons": {}				
+			}
+		},
+		"scrollers": {
+			"type": "tabset",
+			"selection": "flow5_scroller",			
+			"children": {
+				"flow5_scroller": {},
+				"iscroll": {}				
+			}			
+		}
+/*		,
+		"maps": {
+			"type": "tabset",
+			"selection": "flow5_map",			
+			"children": {
+				"flow5_map": {},
+				"someother_map": {}				
+			}						
+		}
+*/
+	}
 }

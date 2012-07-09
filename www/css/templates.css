@@ -34,7 +34,7 @@
 .f5navbar .f5title {
 	font-family: inherit;
 }
-.f5default.f5tabset .f5button-label, .f5button {
+.root-container .f5default.f5tabset .f5button-label, .root-container .f5button, .root-header .f5button {
 	font-family: 'ocr';
 }
 
@@ -44,13 +44,13 @@
 	z-index: 1;
 }
 
-.text1, .f5button-label {
+.text1, .root-container .f5button-label, .root-header .f5button-label, .home-container .f5tab.f5button .f5button-label {
 	color: #0770DB;
 	text-shadow: 0px 0px 3px black;	
 }
 
 .root {
-	font-family: 'ocr';
+	font-family: arial;
 	font-size: 100px;
 	background-color: black;
 }
@@ -70,13 +70,17 @@
 	-webkit-mask-position: center .03em;
 }
 
-.f5button {
+.root-container .f5button, .root-header .f5button {
 	border-radius: 0px;	
     box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.85);	
 	background-color: #0b3c7e;	
 }
 
-.f5button.f5button-press {
+.root-container .f5button.f5tab {
+	box-shadow: none;
+}
+
+.f5button.f5button-press, .f5tab.f5button-down {
 	background-color: #0b2246;		
 }
 
@@ -150,10 +154,15 @@
 
 
 .packageMeta {
-	background-color: #0d4795;
+	font-size: .12em;
+	background-color: black;
+	color: #0d4795;
 }
 
 
+.packageViewer .f5tab.f5button {
+	height: .36em;	
+}
 
 .detail {
 	height: 100%;

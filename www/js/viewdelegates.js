@@ -63,7 +63,7 @@ F5.registerModule(function (F5) {
 		
 		this.populateList = function () {
 			var that = this;			
-			F5.populateList(this.widgets.list, 'packageItem', this.node, this.node.data.packages, 
+			F5.populateList(this.widgets.list.el, 'packageItem', this.node, this.node.data.packages, 
 				function (item, el, widgets) {
 					widgets.control.setAction(function () {												
 						if (item.pkg) {
@@ -79,7 +79,8 @@ F5.registerModule(function (F5) {
 						}
 					});
 				}
-			);			
+			);
+			this.widgets.list.refresh();			
 		};
 		
 		this.viewWillBecomeActive = function () {
@@ -171,6 +172,22 @@ F5.registerModule(function (F5) {
 					transition: 'back'
 				}
 			};
+		};
+		
+		this.initialize = function () {
+			var leafNode = F5.Global.flow.root;
+			// make the leaf node logic work to get here
+			while (leafNode.selection || (leafNode.children && Object.keys(leafNode.children).length)) {
+				if (leafNode.selection) {
+					leafNode = leafNode.selection;					
+				} else {
+					leafNode = leafNode.children[Object.keys(leafNode.children)[0]];
+				}
+			}
+			
+			if (leafNode.view.delegate) {
+				this.el.innerHTML = leafNode.view.delegate.constructor.toString();				
+			}
 		};
 	}
 	

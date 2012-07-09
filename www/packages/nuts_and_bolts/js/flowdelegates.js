@@ -27,5 +27,19 @@
 /*global F5*/
 
 F5.registerModule(function (F5) {
+
+	function Scroller() {
+		this.refresh = function () {
+			var i;
+			this.node.data.list = [];
+			for (i = 0; i < 100; ++i) {
+				this.node.data.list.push({value: i});
+			}
+			this.node.data.modelChanged();
+		};
+	}
+
+	F5.Prototypes.FlowDelegates.flow5_scroller = new Scroller();
+	F5.Prototypes.FlowDelegates.iscroll = new Scroller();
 	
 });

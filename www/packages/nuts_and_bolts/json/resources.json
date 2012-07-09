@@ -25,5 +25,35 @@
 
 ***********************************************************************************************************************/
 {
-	
+	"flow5_buttons": {
+		"maskButton": {
+			"mask": "url(images/buttons/refresh-mask.png)"
+		},
+		"stretchyButton": {
+			"image": {
+				"up": {
+					"left": "url(images/buttons/up-left.png)",
+					"middle": "url(images/buttons/up-mid.png)",
+					"right": "url(images/buttons/up-right.png)"
+				},
+				"press": {
+					"left": "url(images/buttons/press-left.png)",
+					"middle": "url(images/buttons/press-mid.png)",
+					"right": "url(images/buttons/press-right.png)"				
+				}				
+			}
+		}
+	},
+	"buttons": {
+		"buttons-header": {
+			"flow5_buttons": "Flow5",
+			"dojo_buttons": "Dojo"			
+		}
+	},
+	"scrollers": {
+		"scrollers-header": {
+			"flow5_scroller": "Flow5",
+			"iscroll": "iScroll"			
+		}				
+	}
 }

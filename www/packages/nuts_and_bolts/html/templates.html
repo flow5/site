@@ -25,17 +25,38 @@
 
 *********************************************************************************************************************-->
 
-<div id='root'>
-  <div f5widget='f5.widgets.Carousel' class='examples'>     
-    <div class='example'>
-      <div>Buttons</div>
-    </div>
-    <div class='example'>
-      <div>Scrollers</div>
-    </div>
-    <div class='example'>
-      <div>Maps</div>
-    </div>
-  </div>
+<div id='root-container' f5widget='f5.widgets.Carousel' class='examples'></div>
+
+<div id='buttons-header' f5widget='f5.widgets.Tabset'>
+  <div>Buttons</div>
 </div>
+
+<div id='flow5_buttons'>
+  <div f5id='simpleButton' f5widget='f5.widgets.Button' class='simple'>Basic</div>
+  <div f5id='maskButton' f5widget='f5.widgets.Button'></div>
+  <!--div f5id='imageButton' f5widget='f5.widgets.Button'>Image</div-->
+  <div f5id='stretchyButton' f5widget='f5.widgets.Button' class='stretchy'>Stretch</div>
+</div>
+
+
+<div id='scrollers-header' f5widget='f5.widgets.Tabset'>
+  <div>Scrollers</div>
+</div>
+
+<div id='flow5_scroller'>
+  <div f5id='list' f5widget='f5.widgets.Scroller'></div>
+</div>
+
+<div id='iscroll'>
+  <div f5id='list'></div>
+</div>
+
+<div id='scrollerItem'>
+  <div f5id='value' f5widget='f5.widgets.StaticText'></div>
+</div>
+
+<div id='maps-header' f5widget='f5.widgets.Tabset'>
+  <div>Maps</div>
+</div>
+
 
