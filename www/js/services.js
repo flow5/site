@@ -32,7 +32,7 @@ F5.registerModule(function (F5) {
 		packages: {
 			extendedUrl: 'packages',
 			schema: {
-				
+				// TODO
 			}
 		}
 	};
