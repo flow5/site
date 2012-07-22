@@ -108,7 +108,7 @@ F5.registerModule(function (F5) {
 	function PackageViewer() {
 		this.getNavConfig = function () {
 			var that = this;
-			var meta = F5.valueFromId(F5.Meta, this.node.data.pkg);
+			var meta = F5.Meta[this.node.data.pkg];
 			return {
 				title: meta ? meta.title : null,
 				left: {
@@ -135,7 +135,7 @@ F5.registerModule(function (F5) {
 			F5.Global.flowController.importNode(pkg, {
 					active: true,
 					children:{
-						root: F5.valueFromId(F5.Flows, pkg)
+						root: F5.Flows[pkg]
 					}
 				}, this.node, pkg, function (node) {
 					F5.Global.flowController.refresh();
@@ -143,13 +143,13 @@ F5.registerModule(function (F5) {
 		};
 		
 		this.initialize = function () {
-			if (F5.valueFromId(F5.Meta, this.node.data.pkg)) {
+			if (F5.Meta[this.node.data.pkg]) {
 				this.importNode(this.node.data.pkg);
 			}
 		};
 		
 		this.viewDidBecomeActive = function () {
-			if (!F5.valueFromId(F5.Meta, this.node.data.pkg)) {
+			if (!F5.Meta[this.node.data.pkg]) {
 				var that = this;
 				var pkg = this.node.data.pkg;
 				F5.importPackage(pkg, function (result) {

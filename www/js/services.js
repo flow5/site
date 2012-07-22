@@ -30,7 +30,7 @@ F5.registerModule(function (F5) {
 	
 	F5.Services.flow5 = {
 		packages: {
-			extendedUrl: 'packages',
+			extendedUrl: '/site/packages',
 			schema: {
 				// TODO
 			}

@@ -27,7 +27,7 @@
 
 exports.handleRequest = function (req, res) {
 	var packages = [
-		{name: 'Basics', pkg: 'basics'},
+		{name: 'Basics', pkg: 'site.basics'},
 	    {name: 'Style'},
 	    {name: 'Motion'},
 	    {name: 'Packages'},
